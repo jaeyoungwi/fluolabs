@@ -1,0 +1,29 @@
+
+w = 600
+h = 600
+speed = 1
+
+shipX =[]
+shipY =[]
+
+def setup():
+    size(800, 800, P3D)
+    
+def draw():
+    background(0)
+    noFill()
+    
+    translate(width/2, height/2)
+    rotateX(radians(45))
+    
+    for i in range(len(shipX)):
+        stroke(random(256), random(256), random(256))
+        rect(shipX[i] - width/2, shipY[i] - height/2, 50, 50)
+        
+    for i in range(len(shipX)):
+        shipY[i] = shipY[i] - 1
+    
+def mouseClicked():
+    shipX.append(mouseX)
+    shipY.append(mouseY)
+    print(mouseX, mouseY)
